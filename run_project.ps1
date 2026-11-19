@@ -12,9 +12,18 @@ $baseDir = $PSScriptRoot
 $backendDir = Join-Path $baseDir "backend"
 $frontendDir = Join-Path $baseDir "frontend"
 
+# 1. Detect Python Executable (prefer local venv if available)
+$venvPython = Join-Path $backendDir "venv\Scripts\python.exe"
+if (Test-Path $venvPython) {
+    $pythonExe = $venvPython
+    Write-Host "[Info] Using virtual environment Python: $venvPython" -ForegroundColor DarkGray
+} else {
+    $pythonExe = "python"
+}
+
 # 1. Start FastAPI Backend on Port 8000
 Write-Host "`n[1/2] Starting FastAPI Backend on http://localhost:8000..." -ForegroundColor Green
-$backendProcess = Start-Process -FilePath "python" -ArgumentList "-m uvicorn main:app --host 127.0.0.1 --port 8000 --reload" -WorkingDirectory $backendDir -PassThru
+$backendProcess = Start-Process -FilePath $pythonExe -ArgumentList "-m uvicorn main:app --host 127.0.0.1 --port 8000 --reload" -WorkingDirectory $backendDir -PassThru
 
 Start-Sleep -Seconds 2
 
