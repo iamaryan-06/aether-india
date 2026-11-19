@@ -91,7 +91,17 @@ flowchart TD
 
 ## 5. Quick Start Instructions
 
-### A. Fresh Setup (First Time After Cloning)
+### ⚡ 1-Click Launch (Windows — Recommended)
+Simply double-click the batch files in the project folder:
+- **`START.bat`**: Double-click to run! (Automatically checks dependencies, starts both backend and frontend, and automatically opens `http://localhost:3000` in your browser).
+- **`STOP.bat`**: Double-click to cleanly terminate all running servers.
+- **`SETUP.bat`**: Double-click to run one-time installation on a fresh laptop.
+
+---
+
+### Manual Setup & Run (Command Line)
+
+#### A. Fresh Setup (First Time After Cloning)
 
 ```powershell
 # 1. Backend Setup
@@ -112,7 +122,7 @@ cd ..\frontend
 npm install
 ```
 
-### B. Everyday Run (One-Click Launcher)
+#### B. Everyday Run (Command Line)
 
 From the project root:
 ```powershell
