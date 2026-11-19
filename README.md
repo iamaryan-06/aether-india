@@ -91,15 +91,40 @@ flowchart TD
 
 ## 5. Quick Start Instructions
 
+### A. Fresh Setup (First Time After Cloning)
+
 ```powershell
-# 1. Run the all-in-one launcher
+# 1. Backend Setup
+cd backend
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+# Configure your API keys (copy example and edit)
+Copy-Item .env.example .env
+# Edit .env and paste your GOOGLE_API_KEY and/or GROQ_API_KEY
+
+# Seed the database and build local ChromaDB embeddings
+python seed.py
+
+# 2. Frontend Setup
+cd ..\frontend
+npm install
+```
+
+### B. Everyday Run (One-Click Launcher)
+
+From the project root:
+```powershell
 .\run_project.ps1
+```
 
-# Or start services individually:
+Or start both services individually in two terminals:
 
+```powershell
 # Terminal 1 — Backend:
 cd backend
-python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+.\venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
 # Terminal 2 — Frontend:
 cd frontend
