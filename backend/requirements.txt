@@ -1,0 +1,42 @@
+# ============================================================
+# AETHER INDIA — Backend Python Dependencies
+# Compatible with Python 3.11, 3.12, 3.13+
+# ============================================================
+
+# ── Core Web Framework ───────────────────────────────────────
+fastapi
+uvicorn[standard]
+python-multipart
+
+# ── Database ─────────────────────────────────────────────────
+sqlalchemy
+alembic
+
+# ── Data Validation ──────────────────────────────────────────
+pydantic
+pydantic-settings
+email-validator
+
+# ── Authentication ───────────────────────────────────────────
+pyjwt
+
+# ── Multi-Agent Framework ─────────────────────────────────────
+langchain
+langchain-core
+langchain-community
+langgraph
+
+# ── LLM Providers (configurable via .env) ────────────────────
+langchain-openai
+langchain-google-genai
+langchain-groq
+
+# ── RAG / Vector Store ────────────────────────────────────────
+chromadb
+sentence-transformers
+
+# ── Utilities ────────────────────────────────────────────────
+python-dotenv
+httpx
+tenacity
+starlette
